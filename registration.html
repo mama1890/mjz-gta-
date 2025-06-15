@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>МОЗ України — Вхід та реєстрація</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Coat_of_Arms_of_Ukraine.svg" alt="Герб України" class="logo" />
+        <h1>Міністерство охорони здоров'я України</h1>
+    </div>
+</header>
+<nav>
+    <div class="container">
+        <a href="index.html">Головне</a>
+        <a href="about.html">Про Заклад</a>
+        <a href="units.html">Підрозділи</a>
+        <a href="appointments.html">Запис до лікарів</a>
+        <a href="registration.html" class="active">Реєстрація</a>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <h2>Вхід та реєстрація</h2>
+        <p>Для доступу до особистого кабінету створіть профіль або увійдіть, якщо вже зареєстровані.</p>
+
+        <form id="loginForm">
+            <label for="username">Логін:</label><br />
+            <input type="text" id="username" name="username" required /><br /><br />
+            <label for="password">Пароль:</label><br />
+            <input type="password" id="password" name="password" required /><br /><br />
+            <input type="submit" value="Увійти" />
+        </form>
+
+        <p id="message"></p>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2025 Міністерство охорони здоров'я України</p>
+    </div>
+</footer>
+
+<script>
+    const loginForm = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const username = loginForm.username.value.trim();
+        const password = loginForm.password.value.trim();
+
+        if (username === '' || password === '') {
+            message.style.color = 'red';
+            message.textContent = 'Будь ласка, заповніть всі поля.';
+            return;
+        }
+
+        // Тут можна додати логіку перевірки логіна/пароля з базою (поки демонстрація)
+        message.style.color = 'green';
+        message.textContent = `Вітаємо, ${username}! Ви успішно увійшли в систему. (Поки що це демонстрація)`;
+
+        loginForm.reset();
+    });
+</script>
+
+</body>
+</html>
